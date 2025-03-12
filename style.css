@@ -1,0 +1,80 @@
+/* style.css */
+
+/* ベース設定 */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF8F0; /* クリーム色（温かみのある背景色） */
+  color: #444; /* ソフトなダークグレー */
+  line-height: 1.6;
+}
+
+/* コンテナの設定 */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ヘッダー */
+header {
+  background-color: #FAEBD7; /* アンティークホワイト */
+  padding: 20px 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #444;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #D2691E; /* チョコレート系アクセントカラー */
+}
+
+/* ヒーローセクション */
+#hero {
+  background-image: url('hero-image.jpg'); /* ヒーロー画像。実際の画像ファイルを配置してください */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
+}
+
+#hero h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+/* 各セクション */
+section {
+  padding: 60px 0;
+}
+
+section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* フッター */
+footer {
+  background-color: #FAEBD7;
+  text-align: center;
+  padding: 20px 0;
+}
