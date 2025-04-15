@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <title>ななかまど株式会社 | nanakamado, Inc.</title>
-        <meta name="description" content="自社プロダクト開発と観光事業を通じて、地域と未来をつなぐ企業です。" />
+        <meta name="description" content="ななかまどは、自社プロダクトと観光事業を通じて、地域と未来をつなぐ企業です。" />
         <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png" />
         <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png" />
