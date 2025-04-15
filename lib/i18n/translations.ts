@@ -32,7 +32,7 @@ export const translations = {
         "革新的なプロダクトで、あなたの生活を豊かにします。最新のテクノロジーと使いやすさを兼ね備えた製品をご紹介します。",
       productTitle: "Wander Japan",
       productDescription:
-        "「Wander Japan」は、インバウンド観光客向けに日本各地の文化や自然、アクティビティを体験できるプログラムを提供しています。",
+        "「Wander Japan」は、訪日外国人観光客向けに日本各地の文化や自然、アクティビティを紹介しています。",
       cta: "詳細を見る",
     },
     tourism: {
