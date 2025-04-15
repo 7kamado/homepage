@@ -5,6 +5,15 @@ import { ChevronRight, MapPin, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { useLanguage } from "@/lib/i18n/language-context"
+import { 
+  FadeIn, 
+  SlideIn, 
+  ScaleIn, 
+  ScrollReveal, 
+  StaggerContainer, 
+  StaggerItem,
+  HoverScale 
+} from "@/components/animations"
 
 export default function Home() {
   const { t } = useLanguage()
@@ -73,22 +82,38 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-lg">
-            <h2 className="text-4xl md:text-6xl font-bold text-black leading-tight mb-6">
-              {t.hero.title}
-              <br />
-              <span className="text-neutral-700">{t.hero.titleHighlight}</span>
-            </h2>
-            <p className="text-lg md:text-xl text-neutral-700 mb-8">{t.hero.description}</p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-black hover:bg-neutral-800 text-white">
-                {t.hero.cta.details} <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button variant="outline" className="border-black text-black hover:bg-white/80">
-                {t.hero.cta.contact}
-              </Button>
+          <FadeIn delay={0.3} duration={0.8}>
+            <div className="max-w-3xl bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-lg">
+              <SlideIn direction="up" delay={0.5} duration={0.8}>
+                <h2 className="text-4xl md:text-6xl font-bold text-black leading-tight mb-6">
+                  {t.hero.title}
+                  <br />
+                  <span className="text-neutral-700">{t.hero.titleHighlight}</span>
+                </h2>
+              </SlideIn>
+              <FadeIn delay={0.7}>
+                <p className="text-lg md:text-xl text-neutral-700 mb-8">{t.hero.description}</p>
+              </FadeIn>
+              <StaggerContainer staggerDelay={0.2}>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <StaggerItem>
+                    <HoverScale>
+                      <Button className="bg-black hover:bg-neutral-800 text-white">
+                        {t.hero.cta.details} <ChevronRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </HoverScale>
+                  </StaggerItem>
+                  <StaggerItem>
+                    <HoverScale>
+                      <Button variant="outline" className="border-black text-black hover:bg-white/80">
+                        {t.hero.cta.contact}
+                      </Button>
+                    </HoverScale>
+                  </StaggerItem>
+                </div>
+              </StaggerContainer>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -97,27 +122,39 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
-              <div className="relative">
-                <div className="w-full h-80 bg-neutral-100 rounded-lg overflow-hidden">
-                  <Image
-                    src="/images/nanakamado-tree.jpeg"
-                    alt="ななかまどの木と実"
-                    width={800}
-                    height={600}
-                    className="w-full h-full object-cover object-center"
-                  />
+              <ScrollReveal>
+                <div className="relative">
+                  <div className="w-full h-80 bg-neutral-100 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/nanakamado-tree.jpeg"
+                      alt="ななかまどの木と実"
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  <ScaleIn delay={0.3}>
+                    <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-black rounded-lg"></div>
+                  </ScaleIn>
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-black rounded-lg"></div>
-              </div>
+              </ScrollReveal>
             </div>
             <div className="md:w-1/2">
-              <h3 className="text-sm font-medium text-neutral-500 mb-2">{t.about.subtitle}</h3>
-              <h2 className="text-3xl font-bold text-black mb-6">{t.about.title}</h2>
-              <p className="text-neutral-700 mb-6 leading-relaxed">{t.about.description1}</p>
-              <p className="text-neutral-700 mb-8 leading-relaxed">{t.about.description2}</p>
-              <Button variant="outline" className="border-black text-black hover:bg-neutral-100">
-                {t.about.cta} <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
+              <ScrollReveal>
+                <SlideIn direction="right" delay={0.2}>
+                  <h3 className="text-sm font-medium text-neutral-500 mb-2">{t.about.subtitle}</h3>
+                  <h2 className="text-3xl font-bold text-black mb-6">{t.about.title}</h2>
+                </SlideIn>
+                <FadeIn delay={0.4}>
+                  <p className="text-neutral-700 mb-6 leading-relaxed">{t.about.description1}</p>
+                  <p className="text-neutral-700 mb-8 leading-relaxed">{t.about.description2}</p>
+                </FadeIn>
+                <HoverScale>
+                  <Button variant="outline" className="border-black text-black hover:bg-neutral-100">
+                    {t.about.cta} <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </HoverScale>
+              </ScrollReveal>
             </div>
           </div>
         </div>
@@ -126,37 +163,53 @@ export default function Home() {
       {/* 製品セクション */}
       <section id="products" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-sm font-medium text-neutral-500 mb-2">{t.products.subtitle}</h3>
-            <h2 className="text-3xl font-bold text-black mb-6">{t.products.title}</h2>
-            <p className="text-neutral-700 max-w-2xl mx-auto">{t.products.description}</p>
-          </div>
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <SlideIn direction="up" delay={0.1}>
+                <h3 className="text-sm font-medium text-neutral-500 mb-2">{t.products.subtitle}</h3>
+                <h2 className="text-3xl font-bold text-black mb-6">{t.products.title}</h2>
+              </SlideIn>
+              <FadeIn delay={0.3}>
+                <p className="text-neutral-700 max-w-2xl mx-auto">{t.products.description}</p>
+              </FadeIn>
+            </div>
+          </ScrollReveal>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-neutral-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/2 h-64 md:h-auto bg-neutral-100 relative">
-                  <Image
-                    src="/images/wander-japan-app.png"
-                    alt="Wander Japan アプリ"
-                    width={600}
-                    height={800}
-                    className="w-full h-full object-cover"
-                  />
+            <ScrollReveal>
+              <HoverScale scale={1.02}>
+                <div className="bg-neutral-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                  <div className="flex flex-col md:flex-row">
+                    <div className="md:w-1/2 h-64 md:h-auto bg-neutral-100 relative">
+                      <Image
+                        src="/images/wander-japan-app.png"
+                        alt="Wander Japan アプリ"
+                        width={600}
+                        height={800}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="md:w-1/2 p-8 flex flex-col justify-center">
+                      <SlideIn direction="right" delay={0.2}>
+                        <h3 className="text-2xl font-bold text-black mb-4">{t.products.productTitle}</h3>
+                      </SlideIn>
+                      <FadeIn delay={0.4}>
+                        <p className="text-neutral-700 mb-6 leading-relaxed">{t.products.productDescription}</p>
+                      </FadeIn>
+                      <HoverScale>
+                        <Button 
+                          variant="outline" 
+                          className="border-black text-black hover:bg-neutral-100 self-start"
+                          onClick={() => window.open("https://www.wanderjapan.co/", "_blank")}
+                        >
+                          {t.products.cta} <ChevronRight className="ml-1 h-4 w-4" />
+                        </Button>
+                      </HoverScale>
+                    </div>
+                  </div>
                 </div>
-                <div className="md:w-1/2 p-8 flex flex-col justify-center">
-                  <h3 className="text-2xl font-bold text-black mb-4">{t.products.productTitle}</h3>
-                  <p className="text-neutral-700 mb-6 leading-relaxed">{t.products.productDescription}</p>
-                  <Button 
-                    variant="outline" 
-                    className="border-black text-black hover:bg-neutral-100 self-start"
-                    onClick={() => window.open("https://www.wanderjapan.co/", "_blank")}
-                  >
-                    {t.products.cta} <ChevronRight className="ml-1 h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-            </div>
+              </HoverScale>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -166,27 +219,39 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
             <div className="md:w-1/2">
-              <div className="relative">
-                <div className="w-full h-80 bg-neutral-100 rounded-lg overflow-hidden">
-                  <Image
-                    src="/images/tourism-winter.jpeg"
-                    alt="冬の美しい風景 - ファーム富田"
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover"
-                  />
+              <ScrollReveal>
+                <div className="relative">
+                  <div className="w-full h-80 bg-neutral-100 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/tourism-winter.jpeg"
+                      alt="冬の美しい風景 - ファーム富田"
+                      width={600}
+                      height={400}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <ScaleIn delay={0.3}>
+                    <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-black rounded-lg"></div>
+                  </ScaleIn>
                 </div>
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-black rounded-lg"></div>
-              </div>
+              </ScrollReveal>
             </div>
             <div className="md:w-1/2">
-              <h3 className="text-sm font-medium text-neutral-500 mb-2">{t.tourism.subtitle}</h3>
-              <h2 className="text-3xl font-bold text-black mb-6">{t.tourism.title}</h2>
-              <p className="text-neutral-700 mb-6 leading-relaxed">{t.tourism.description1}</p>
-              <p className="text-neutral-700 mb-8 leading-relaxed">{t.tourism.description2}</p>
-              <Button variant="outline" className="border-black text-black hover:bg-neutral-100">
-                {t.tourism.cta} <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
+              <ScrollReveal>
+                <SlideIn direction="left" delay={0.2}>
+                  <h3 className="text-sm font-medium text-neutral-500 mb-2">{t.tourism.subtitle}</h3>
+                  <h2 className="text-3xl font-bold text-black mb-6">{t.tourism.title}</h2>
+                </SlideIn>
+                <FadeIn delay={0.4}>
+                  <p className="text-neutral-700 mb-6 leading-relaxed">{t.tourism.description1}</p>
+                  <p className="text-neutral-700 mb-8 leading-relaxed">{t.tourism.description2}</p>
+                </FadeIn>
+                <HoverScale>
+                  <Button variant="outline" className="border-black text-black hover:bg-neutral-100">
+                    {t.tourism.cta} <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </HoverScale>
+              </ScrollReveal>
             </div>
           </div>
         </div>
