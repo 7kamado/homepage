@@ -147,7 +147,11 @@ export default function Home() {
                 <div className="md:w-1/2 p-8 flex flex-col justify-center">
                   <h3 className="text-2xl font-bold text-black mb-4">{t.products.productTitle}</h3>
                   <p className="text-neutral-700 mb-6 leading-relaxed">{t.products.productDescription}</p>
-                  <Button variant="outline" className="border-black text-black hover:bg-neutral-100 self-start">
+                  <Button 
+                    variant="outline" 
+                    className="border-black text-black hover:bg-neutral-100 self-start"
+                    onClick={() => window.open("https://www.wanderjapan.co/", "_blank")}
+                  >
                     {t.products.cta} <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
                 </div>
