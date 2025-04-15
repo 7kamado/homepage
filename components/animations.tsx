@@ -16,11 +16,11 @@ export const FadeIn = ({
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ 
-        duration: duration,
-        delay: delay,
+        duration: duration < 0.4 ? duration : 0.4,
+        delay: delay < 0.2 ? delay : 0.2,
         ease: "easeOut"
       }}
       className={className}
@@ -44,10 +44,10 @@ export const SlideIn = ({
   className?: string
 }) => {
   const directionMap = {
-    left: { x: -50, y: 0 },
-    right: { x: 50, y: 0 },
-    up: { x: 0, y: -50 },
-    down: { x: 0, y: 50 }
+    left: { x: -20, y: 0 },
+    right: { x: 20, y: 0 },
+    up: { x: 0, y: -20 },
+    down: { x: 0, y: 20 }
   }
 
   return (
@@ -55,8 +55,8 @@ export const SlideIn = ({
       initial={{ opacity: 0, ...directionMap[direction] }}
       animate={{ opacity: 1, x: 0, y: 0 }}
       transition={{ 
-        duration: duration,
-        delay: delay,
+        duration: duration < 0.4 ? duration : 0.4,
+        delay: delay < 0.2 ? delay : 0.2,
         ease: "easeOut"
       }}
       className={className}
@@ -79,11 +79,11 @@ export const ScaleIn = ({
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
+      initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ 
-        duration: duration,
-        delay: delay,
+        duration: duration < 0.4 ? duration : 0.4,
+        delay: delay < 0.2 ? delay : 0.2,
         ease: "easeOut"
       }}
       className={className}
@@ -157,8 +157,8 @@ export const HoverScale = ({
 }) => {
   return (
     <motion.div
-      whileHover={{ scale: scale }}
-      transition={{ duration: 0.2 }}
+      whileHover={{ scale: scale > 1.03 ? 1.03 : scale }}
+      transition={{ duration: 0.15 }}
       className={className}
     >
       {children}
@@ -175,10 +175,10 @@ export const ScrollReveal = ({
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className={className}
     >
       {children}
