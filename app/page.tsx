@@ -327,15 +327,7 @@ export default function Home() {
                     <p className="text-neutral-300">{t.contact.info.email.value}</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="bg-neutral-800 p-3 rounded-full">
-                    <Phone className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold mb-1">{t.contact.info.phone.title}</h4>
-                    <p className="text-neutral-300">{t.contact.info.phone.value}</p>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>
