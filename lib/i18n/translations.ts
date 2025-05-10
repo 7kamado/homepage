@@ -64,11 +64,7 @@ export const translations = {
         },
         email: {
           title: "メール",
-          value: "info@nanakamado.jp",
-        },
-        phone: {
-          title: "電話番号",
-          value: "000-000-0000",
+          value: "contact@7kamado.jp",
         },
       },
     },
@@ -146,11 +142,7 @@ export const translations = {
         },
         email: {
           title: "Email",
-          value: "info@nanakamado.jp",
-        },
-        phone: {
-          title: "Phone",
-          value: "000-000-0000",
+          value: "contact@7kamado.jp",
         },
       },
     },
